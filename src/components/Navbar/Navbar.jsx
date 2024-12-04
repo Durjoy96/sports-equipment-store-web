@@ -54,7 +54,10 @@ const Navbar = () => {
             </ul>
           </div>
           <div className="navbar-end gap-5">
-            <Link className="btn bg-primary text-primary-content border-none shadow-none hover:bg-primary/80">
+            <Link
+              to="/sign-up"
+              className="btn bg-primary text-primary-content border-none shadow-none hover:bg-primary/80"
+            >
               Sign Up
             </Link>
             <Link className="btn bg-transparent text-primary border-primary shadow-none hover:bg-primary hover:text-primary-content hover:border-primary">
