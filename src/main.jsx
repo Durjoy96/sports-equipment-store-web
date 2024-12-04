@@ -6,6 +6,7 @@ import Root from "./routes/Root";
 import Error from "./pages/Error";
 import SignUp from "./pages/SignUp";
 import Lottie from "lottie-react";
+import SignIn from "./pages/SignIn";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
       {
         path: "/sign-up",
         element: <SignUp></SignUp>,
+      },
+      {
+        path: "/sign-in",
+        element: <SignIn></SignIn>,
       },
     ],
   },

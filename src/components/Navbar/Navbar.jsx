@@ -60,7 +60,10 @@ const Navbar = () => {
             >
               Sign Up
             </Link>
-            <Link className="btn bg-transparent text-primary border-primary shadow-none hover:bg-primary hover:text-primary-content hover:border-primary">
+            <Link
+              to="/sign-in"
+              className="btn bg-transparent text-primary border-primary shadow-none hover:bg-primary hover:text-primary-content hover:border-primary"
+            >
               Login
             </Link>
           </div>
