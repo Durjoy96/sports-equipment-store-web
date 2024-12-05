@@ -7,6 +7,9 @@ import Error from "./pages/Error";
 import SignUp from "./pages/SignUp";
 import Lottie from "lottie-react";
 import SignIn from "./pages/SignIn";
+import AuthProvider from "./AuthProvider/AuthProvider";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const router = createBrowserRouter([
   {
@@ -28,7 +31,10 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <RouterProvider router={router}></RouterProvider>
+    <AuthProvider>
+      <RouterProvider router={router}></RouterProvider>
+      <ToastContainer position="top-center" />
+    </AuthProvider>
     <Lottie />
   </StrictMode>
 );

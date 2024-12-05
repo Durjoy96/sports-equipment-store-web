@@ -63,12 +63,12 @@ const SignIn = () => {
                 Sign In With Google
               </button>
               <p className="text-base text-base-content-secondary">
-                Already have an account?{" "}
+                Don't have an account?{" "}
                 <Link
-                  to="/login"
+                  to="/sign-up"
                   className="text-primary font-medium hover:opacity-80 mt-6 inline-block"
                 >
-                  Login Now!
+                  Sign Up Now!
                 </Link>
               </p>
             </form>
