@@ -10,6 +10,8 @@ import SignIn from "./pages/SignIn";
 import AuthProvider from "./AuthProvider/AuthProvider";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import PrivateRoute from "./privateRoute/PrivateRoute";
+import AddEquipment from "./pages/AddEquipment";
 
 const router = createBrowserRouter([
   {
@@ -24,6 +26,14 @@ const router = createBrowserRouter([
       {
         path: "/sign-in",
         element: <SignIn></SignIn>,
+      },
+      {
+        path: "/add-equipment",
+        element: (
+          <PrivateRoute>
+            <AddEquipment></AddEquipment>
+          </PrivateRoute>
+        ),
       },
     ],
   },

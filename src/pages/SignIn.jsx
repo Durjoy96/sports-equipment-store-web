@@ -46,7 +46,6 @@ const SignIn = () => {
           name: res?.user?.displayName,
           email: res?.user?.email,
           creationTime: res?.user?.metadata?.creationTime,
-          lastSignInTime: res?.user?.metadata?.lastSignInTime,
         };
         serverPostReqHandler(user);
       })

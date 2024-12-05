@@ -44,7 +44,6 @@ const SignUp = () => {
           name: name,
           email: res?.user?.email,
           creationTime: res?.user?.metadata?.creationTime,
-          lastSignInTime: res?.user?.metadata?.lastSignInTime,
         };
         serverPostReqHandler(user);
         toast.success("Registration Successful!");
@@ -70,7 +69,6 @@ const SignUp = () => {
           name: res?.user?.displayName,
           email: res?.user?.email,
           creationTime: res?.user?.metadata?.creationTime,
-          lastSignInTime: res?.user?.metadata?.lastSignInTime,
         };
         serverPostReqHandler(user);
       })
