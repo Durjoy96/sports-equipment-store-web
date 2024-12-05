@@ -14,7 +14,12 @@ const SignUp = () => {
 
   const { View } = useLottie(options);
 
-  const { createUserWithEmail, updateUserProfile } = useContext(authContext);
+  const {
+    createUserWithEmail,
+    updateUserProfile,
+    signInWithGoogle,
+    serverPostReqHandler,
+  } = useContext(authContext);
 
   const formHandler = (e) => {
     e.preventDefault();
@@ -31,12 +36,17 @@ const SignUp = () => {
       return;
     }
 
-    const user = { name, email, photoUrl, password };
-
     createUserWithEmail(email, password)
       .then((res) => {
         console.log(res);
         updateUserProfile(name, photoUrl);
+        const user = {
+          name: name,
+          email: res?.user?.email,
+          creationTime: res?.user?.metadata?.creationTime,
+          lastSignInTime: res?.user?.metadata?.lastSignInTime,
+        };
+        serverPostReqHandler(user);
         toast.success("Registration Successful!");
         form.name.value = "";
         form.email.value = "";
@@ -45,13 +55,30 @@ const SignUp = () => {
       })
       .catch((error) => {
         console.log(error.message);
-        if (error.includes("Firebase: Error (auth/email-already-in-use).")) {
+        if (error.message === "Firebase: Error (auth/email-already-in-use).") {
           toast.error("Email already in use");
         }
       });
-
-    setInputDefaultValue("");
   };
+
+  const signInWithGoogleHandler = () => {
+    signInWithGoogle()
+      .then((res) => {
+        console.log(res);
+        toast.success("Sign in Successful!");
+        const user = {
+          name: res?.user?.displayName,
+          email: res?.user?.email,
+          creationTime: res?.user?.metadata?.creationTime,
+          lastSignInTime: res?.user?.metadata?.lastSignInTime,
+        };
+        serverPostReqHandler(user);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
+
   return (
     <>
       <div className="hero bg-base-200 min-h-screen lg:mt-12">
@@ -119,6 +146,7 @@ const SignUp = () => {
               </div>
               <div class="divider">Or</div>
               <button
+                onClick={signInWithGoogleHandler}
                 type="button"
                 className="btn w-full text-sm font-semibold px-8 bg-base-300 shadow-none border text-base-content-secondary hover:opacity-80"
               >

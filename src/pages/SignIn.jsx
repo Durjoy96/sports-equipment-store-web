@@ -14,7 +14,8 @@ const SignIn = () => {
 
   const { View } = useLottie(options);
 
-  const { signInWithEmail } = useContext(authContext);
+  const { signInWithEmail, signInWithGoogle, serverPostReqHandler } =
+    useContext(authContext);
 
   const formHandler = (e) => {
     e.preventDefault();
@@ -33,6 +34,24 @@ const SignIn = () => {
         if (error.message === "Firebase: Error (auth/invalid-credential).") {
           toast.error("Invalid email or password");
         }
+      });
+  };
+
+  const signInWithGoogleHandler = () => {
+    signInWithGoogle()
+      .then((res) => {
+        console.log(res);
+        toast.success("Sign in Successful!");
+        const user = {
+          name: res?.user?.displayName,
+          email: res?.user?.email,
+          creationTime: res?.user?.metadata?.creationTime,
+          lastSignInTime: res?.user?.metadata?.lastSignInTime,
+        };
+        serverPostReqHandler(user);
+      })
+      .catch((error) => {
+        console.log(error.message);
       });
   };
 
@@ -84,6 +103,7 @@ const SignIn = () => {
               </div>
               <div class="divider">Or</div>
               <button
+                onClick={signInWithGoogleHandler}
                 type="button"
                 className="btn w-full text-sm font-semibold px-8 bg-base-300 shadow-none border text-base-content-secondary hover:opacity-80"
               >
