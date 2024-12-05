@@ -54,7 +54,7 @@ const SignUp = () => {
   };
   return (
     <>
-      <div className="hero bg-base-200 min-h-screen">
+      <div className="hero bg-base-200 min-h-screen lg:mt-12">
         <div className="hero-content flex-col gap-12 w-full lg:justify-between lg:flex-row">
           <div className="text-center max-w-2xl lg:text-left">{View}</div>
           <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-lg">

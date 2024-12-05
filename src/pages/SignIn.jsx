@@ -2,6 +2,9 @@ import { useLottie } from "lottie-react";
 import SignInJSON from "../assets/LottieJSON/signin.json";
 import { Link } from "react-router-dom";
 import googlePng from "../assets/Icons/google.png";
+import { useContext } from "react";
+import { authContext } from "../AuthProvider/AuthProvider";
+import { toast } from "react-toastify";
 
 const SignIn = () => {
   const options = {
@@ -10,13 +13,36 @@ const SignIn = () => {
   };
 
   const { View } = useLottie(options);
+
+  const { signInWithEmail } = useContext(authContext);
+
+  const formHandler = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    signInWithEmail(email, password)
+      .then((res) => {
+        console.log(res);
+        toast.success("Sign in Successful!");
+        form.email.value = "";
+        form.password.value = "";
+      })
+      .catch((error) => {
+        console.log(error.message);
+        if (error.message === "Firebase: Error (auth/invalid-credential).") {
+          toast.error("Invalid email or password");
+        }
+      });
+  };
+
   return (
     <>
-      <div className="hero bg-base-200 min-h-screen">
+      <div className="hero bg-base-200 min-h-screen lg:mt-6">
         <div className="hero-content flex-col gap-12 w-full lg:justify-between lg:flex-row">
           <div className="text-center max-w-2xl lg:text-left">{View}</div>
           <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-lg">
-            <form className="card-body">
+            <form onSubmit={formHandler} className="card-body">
               <div>
                 <h2 className="text-xl font-bold text-center pb-6 md:text-2xl lg:text-3xl">
                   Sign In
@@ -30,6 +56,7 @@ const SignIn = () => {
                   type="email"
                   placeholder="jon@gmail.com"
                   className="input input-bordered"
+                  name="email"
                   required
                 />
               </div>
@@ -41,6 +68,7 @@ const SignIn = () => {
                   type="password"
                   placeholder="password"
                   className="input input-bordered"
+                  name="password"
                   required
                 />
                 <label className="label">
