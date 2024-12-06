@@ -7,7 +7,9 @@ const Root = () => {
       <header className="">
         <Navbar></Navbar>
       </header>
-      <Outlet></Outlet>
+      <main className="px-5">
+        <Outlet></Outlet>
+      </main>
     </>
   );
 };

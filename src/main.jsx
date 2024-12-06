@@ -13,6 +13,7 @@ import "react-toastify/dist/ReactToastify.css";
 import PrivateRoute from "./privateRoute/PrivateRoute";
 import AddEquipment from "./pages/AddEquipment";
 import AllSportsEquipment from "./pages/AllSportsEquipment";
+import Details from "./pages/Details";
 
 const router = createBrowserRouter([
   {
@@ -40,6 +41,16 @@ const router = createBrowserRouter([
         path: "/all-sports-equipment",
         element: <AllSportsEquipment></AllSportsEquipment>,
         loader: () => fetch("http://localhost:5000/equipments"),
+      },
+      {
+        path: "details/:id",
+        element: (
+          <PrivateRoute>
+            <Details></Details>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/details/${params.id}`),
       },
     ],
   },

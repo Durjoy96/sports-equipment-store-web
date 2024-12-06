@@ -31,7 +31,7 @@ const AllSportsEquipment = () => {
                     <td>{equipment.stockStatus} Available</td>
                     <td>
                       <Link
-                        to={`${equipment._id}`}
+                        to={`/details/${equipment._id}`}
                         className="bg-primary py-2 px-4 rounded-lg text-primary-content hover:bg-primary/80"
                       >
                         Details

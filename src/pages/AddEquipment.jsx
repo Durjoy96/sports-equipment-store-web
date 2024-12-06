@@ -73,6 +73,7 @@ const AddEquipment = () => {
                   placeholder="Type here"
                   className="input input-bordered w-full max-w-xs"
                   name="imageUrl"
+                  required
                 />
               </label>
               <label className="form-control w-full max-w-xs">
@@ -84,6 +85,7 @@ const AddEquipment = () => {
                   placeholder="eg. Football"
                   className="input input-bordered w-full max-w-xs"
                   name="itemName"
+                  required
                 />
               </label>
               <label className="form-control w-full max-w-xs">
@@ -95,6 +97,7 @@ const AddEquipment = () => {
                   placeholder="eg. Ball"
                   className="input input-bordered w-full max-w-xs"
                   name="category"
+                  required
                 />
               </label>
               <label className="form-control w-full max-w-xs">
@@ -105,6 +108,7 @@ const AddEquipment = () => {
                   className="textarea textarea-bordered"
                   placeholder="Type here..."
                   name="description"
+                  required
                 ></textarea>
               </label>
               <label className="form-control w-full max-w-xs">
@@ -117,6 +121,7 @@ const AddEquipment = () => {
                     placeholder="eg. 500"
                     className="input input-bordered w-full max-w-xs"
                     name="price"
+                    required
                   />
                   <FaDollarSign className="absolute right-5 top-1/2 -translate-y-1/2 fill-base-content-secondary"></FaDollarSign>
                 </div>
@@ -131,6 +136,7 @@ const AddEquipment = () => {
                   placeholder="eg. 4.8"
                   name="rating"
                   className="input input-bordered w-full max-w-xs"
+                  required
                 />
               </label>
               <label className="form-control w-full max-w-xs">
@@ -142,6 +148,7 @@ const AddEquipment = () => {
                   placeholder="eg. bat with extra grip, hit paper etc"
                   className="input input-bordered w-full max-w-xs"
                   name="customization"
+                  required
                 />
               </label>
               <label className="form-control w-full max-w-xs">
@@ -153,6 +160,7 @@ const AddEquipment = () => {
                   placeholder="eg. 2-4 days"
                   className="input input-bordered w-full max-w-xs"
                   name="processingTime"
+                  required
                 />
               </label>
               <label className="form-control w-full max-w-xs">
@@ -165,6 +173,7 @@ const AddEquipment = () => {
                   placeholder="eg. 1000"
                   className="input input-bordered w-full max-w-xs"
                   name="stockStatus"
+                  required
                 />
               </label>
               <label className="form-control w-full max-w-xs">
