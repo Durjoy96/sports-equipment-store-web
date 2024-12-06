@@ -14,6 +14,7 @@ export const authContext = createContext();
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   const createUserWithEmail = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
@@ -44,6 +45,7 @@ const AuthProvider = ({ children }) => {
       if (currentUser) {
         // console.log(currentUser);
         setUser(currentUser);
+        setLoading(false);
       } else {
         setUser(null);
       }
@@ -74,6 +76,7 @@ const AuthProvider = ({ children }) => {
     signInWithEmail,
     signInWithGoogle,
     serverPostReqHandler,
+    loading,
   };
 
   return (
