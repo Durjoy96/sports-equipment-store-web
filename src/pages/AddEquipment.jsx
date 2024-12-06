@@ -29,7 +29,7 @@ const AddEquipment = () => {
       price: Number(price),
       rating: Number(rating),
       customization: customization,
-      processingTime: Number(processingTime),
+      processingTime: processingTime,
       stockStatus: Number(stockStatus),
       userName: name,
       userEmail: email,
@@ -44,6 +44,7 @@ const AddEquipment = () => {
     })
       .then((res) => res.json())
       .then((data) => {
+        form.reset();
         if (data.acknowledged) {
           Swal.fire({
             title: "Equipment Added!",
@@ -122,11 +123,10 @@ const AddEquipment = () => {
               </label>
               <label className="form-control w-full max-w-xs break-inside-avoid">
                 <div className="label">
-                  <span className="label-text">Rating</span>
+                  <span className="label-text">Rating (Out of 5)</span>
                 </div>
                 <input
-                  type="number"
-                  max={5}
+                  type="text"
                   min={0}
                   placeholder="eg. 4.8"
                   name="rating"
@@ -149,8 +149,8 @@ const AddEquipment = () => {
                   <span className="label-text">Processing Time</span>
                 </div>
                 <input
-                  type="number"
-                  placeholder="eg. 2"
+                  type="text"
+                  placeholder="eg. 2-4 days"
                   className="input input-bordered w-full max-w-xs"
                   name="processingTime"
                 />

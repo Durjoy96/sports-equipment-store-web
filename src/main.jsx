@@ -12,6 +12,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import PrivateRoute from "./privateRoute/PrivateRoute";
 import AddEquipment from "./pages/AddEquipment";
+import AllSportsEquipment from "./pages/AllSportsEquipment";
 
 const router = createBrowserRouter([
   {
@@ -34,6 +35,11 @@ const router = createBrowserRouter([
             <AddEquipment></AddEquipment>
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/all-sports-equipment",
+        element: <AllSportsEquipment></AllSportsEquipment>,
+        loader: () => fetch("http://localhost:5000/equipments"),
       },
     ],
   },
