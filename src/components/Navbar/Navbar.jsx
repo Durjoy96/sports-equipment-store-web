@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { data, Link } from "react-router-dom";
 import NavPage from "./NavPage";
 import { useContext, useState } from "react";
 import { authContext } from "../../AuthProvider/AuthProvider";
@@ -14,6 +14,7 @@ const Navbar = () => {
       name: "My Equipment List",
     },
   ];
+  console.log(databaseUserInfo._id);
   return (
     <>
       <div className="bg-base-100 py-2">

@@ -11,6 +11,7 @@ const MyEquipments = () => {
     const remainingData = data.filter((equipment) => equipment._id !== id);
     setEquipmentData(remainingData);
   };
+
   return (
     <>
       <div className="max-w-screen-xl mx-auto mt-12">

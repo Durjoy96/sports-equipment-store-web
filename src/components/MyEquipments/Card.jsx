@@ -57,7 +57,11 @@ const Card = ({ equipment, filteredDataHandler }) => {
               <FaTrash></FaTrash>
               Delete
             </button>
-            <Link className="flex-1 flex justify-center items-center gap-2 bg-primary px-4 py-2 rounded-lg text-primary-content hover:opacity-80">
+            <Link
+              to={`/user/equipment/${_id}/edit`}
+              onClick={() => setEquipmentId(_id)}
+              className="flex-1 flex justify-center items-center gap-2 bg-primary px-4 py-2 rounded-lg text-primary-content hover:opacity-80"
+            >
               <FaEdit></FaEdit>
               Edit
             </Link>
