@@ -6,7 +6,7 @@ import { RiCustomSize } from "react-icons/ri";
 
 const Details = () => {
   const equipment = useLoaderData();
-  console.log(equipment);
+  // console.log(equipment);
   const {
     category,
     customization,

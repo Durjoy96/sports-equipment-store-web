@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 
 const AllSportsEquipment = () => {
   const data = useLoaderData();
-  console.log(data);
   return (
     <>
       <div className="max-w-screen-xl mx-auto mt-12">

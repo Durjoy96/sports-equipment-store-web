@@ -15,6 +15,7 @@ export const authContext = createContext();
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [databaseUserInfo, setDatabaseUserInfo] = useState({});
 
   const createUserWithEmail = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
@@ -56,6 +57,12 @@ const AuthProvider = ({ children }) => {
     };
   }, []);
 
+  useEffect(() => {
+    fetch(`http://localhost:5000/${user?.email}`)
+      .then((res) => res.json())
+      .then((data) => setDatabaseUserInfo(data));
+  }, [user]);
+
   const serverPostReqHandler = async (user) => {
     const response = await fetch("http://localhost:5000/users", {
       method: "POST",
@@ -77,6 +84,7 @@ const AuthProvider = ({ children }) => {
     signInWithGoogle,
     serverPostReqHandler,
     loading,
+    databaseUserInfo,
   };
 
   return (

@@ -1,4 +1,4 @@
-import { StrictMode } from "react";
+import { StrictMode, useContext } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -14,6 +14,7 @@ import PrivateRoute from "./privateRoute/PrivateRoute";
 import AddEquipment from "./pages/AddEquipment";
 import AllSportsEquipment from "./pages/AllSportsEquipment";
 import Details from "./pages/Details";
+import MyEquipments from "./pages/MyEquipments";
 
 const router = createBrowserRouter([
   {
@@ -51,6 +52,16 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/details/${params.id}`),
+      },
+      {
+        path: "/user/equipments/:id",
+        element: (
+          <PrivateRoute>
+            <MyEquipments></MyEquipments>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/equipments/user/${params.id}`),
       },
     ],
   },

@@ -1,18 +1,19 @@
 import { Link } from "react-router-dom";
 import NavPage from "./NavPage";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { authContext } from "../../AuthProvider/AuthProvider";
 
 const Navbar = () => {
+  const { user, signOutUser, databaseUserInfo } = useContext(authContext);
   const navbarPages = [
     { path: "/", name: "Home" },
     { path: "/all-sports-equipment", name: "All Sports Equipment" },
     { path: "/add-equipment", name: "Add Equipment" },
-    { path: "/my-equipment-list", name: "My Equipment List" },
+    {
+      path: `/user/equipments/${databaseUserInfo._id}`,
+      name: "My Equipment List",
+    },
   ];
-
-  const { user, signOutUser } = useContext(authContext);
-
   return (
     <>
       <div className="bg-base-100 py-2">
