@@ -17,7 +17,7 @@ const Products = () => {
           <>
             <div
               key={product._id}
-              className="bg-base-100 p-6 rounded-xl shadow-md"
+              className="bg-base-100 dark:bg-neutral-900 p-6 rounded-xl shadow-md"
             >
               <div className="h-60 bg-base-200 p-4 rounded-xl">
                 <img
@@ -27,7 +27,7 @@ const Products = () => {
                 />
               </div>
               <div className="mt-4">
-                <h2 className="text-lg font-semibold text-base-content md:text-xl">
+                <h2 className="text-lg font-semibold text-base-content dark:text-white/90 md:text-xl">
                   {product.itemName}
                 </h2>
                 <div>
@@ -48,12 +48,12 @@ const Products = () => {
                     <p className="text-red-500">Stock Out</p>
                   )}
                 </div>
-                <p className="text-lg font-semibold mt-2 text-base-content-secondary md:text-xl">
+                <p className="text-lg font-semibold mt-2 text-base-content-secondary dark:text-white/90 md:text-xl">
                   {product.price}$
                 </p>
                 <Link
                   to={`/details/${product._id}`}
-                  className="inline-block mt-3 text-base-content-secondary hover:text-primary hover:underline"
+                  className="inline-block mt-3 text-base-content-secondary dark:text-white/90 hover:text-primary hover:underline"
                 >
                   View Details
                 </Link>

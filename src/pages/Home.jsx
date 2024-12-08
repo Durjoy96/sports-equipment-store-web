@@ -27,7 +27,7 @@ import Moneyback from "../assets/Icons/money-back.png";
 import Support from "../assets/Icons/support.png";
 
 const Home = () => {
-  const { setProducts } = useContext(authContext);
+  const { setProducts, darkMode } = useContext(authContext);
   const [categories, setCategories] = useState([]);
   useEffect(() => {
     fetch("http://localhost:5000/categories")
@@ -156,7 +156,11 @@ const Home = () => {
               Trusted By
             </h2>
           </div>
-          <Marquee autoFill={true} gradient={true} gradientColor="#f8f9fd">
+          <Marquee
+            autoFill={true}
+            gradient={true}
+            gradientColor={`${darkMode ? "black" : "#f8f9fd"}`}
+          >
             <div className="flex gap-6 items-center mt-8">
               <img className="w-10 grayscale" src={NasaImg} alt="" />
               <img className="w-10 grayscale" src={ReactImg} alt="" />
@@ -167,11 +171,15 @@ const Home = () => {
           </Marquee>
         </div>
         <div className="flex gap-6 justify-center flex-col mt-12 md:mt-20 md:flex-row md:flex-wrap lg:mt-32">
-          <NavLink className="btn" to="/">
+          <NavLink className="btn dark:bg-neutral-900" to="/">
             ALL
           </NavLink>
           {categories.map((category, idx) => (
-            <NavLink className="btn" key={idx} to={`/${category}`}>
+            <NavLink
+              className="btn dark:bg-neutral-900 "
+              key={idx}
+              to={`/${category}`}
+            >
               {category.toUpperCase()}
             </NavLink>
           ))}
@@ -179,19 +187,19 @@ const Home = () => {
         <Outlet></Outlet>
         {/* Why Shop With Us? */}
         <div className="mt-12 md:mt-20 lg:mt-32">
-          <h2 className="text-xl font-bold text-base-content text-center md:text-2xl lg:text-3xl">
+          <h2 className="text-xl font-bold text-base-content dark:text-white/90 text-center md:text-2xl lg:text-3xl">
             Why Shop With Us?
           </h2>
-          <div className="py-12 px-8 bg-base-100 rounded-xl mt-8 flex gap-6 shadow-md flex-col md:flex-row">
+          <div className="py-12 px-8 bg-base-100 dark:bg-neutral-900 rounded-xl mt-8 flex gap-6 shadow-md flex-col md:flex-row">
             <div className="flex items-center gap-4">
               <div className="h-14">
                 <img className="h-full" src={DeliveryPng} alt="" />
               </div>
               <div>
-                <h3 className="text-xl font-bold text-base-content">
+                <h3 className="text-xl font-bold text-base-content dark:text-white/90">
                   Fast Delivery
                 </h3>
-                <p className="text-base font-normal text-base-content-secondary">
+                <p className="text-base font-normal text-base-content-secondary dark:text-white/90">
                   Experience Lightning-Fast Delivery
                 </p>
               </div>
@@ -201,10 +209,10 @@ const Home = () => {
                 <img className="h-full" src={SecurePayment} alt="" />
               </div>
               <div>
-                <h3 className="text-xl font-bold text-base-content">
+                <h3 className="text-xl font-bold text-base-content dark:text-white/90">
                   Secured Payment
                 </h3>
-                <p className="text-base font-normal text-base-content-secondary">
+                <p className="text-base font-normal text-base-content-secondary dark:text-white/90">
                   Shop with Confidence
                 </p>
               </div>
@@ -214,10 +222,10 @@ const Home = () => {
                 <img className="h-full" src={Moneyback} alt="" />
               </div>
               <div>
-                <h3 className="text-xl font-bold text-base-content">
+                <h3 className="text-xl font-bold text-base-content dark:text-white/90">
                   Money Back
                 </h3>
-                <p className="text-base font-normal text-base-content-secondary">
+                <p className="text-base font-normal text-base-content-secondary dark:text-white/90">
                   100% Money-Back Guarantee
                 </p>
               </div>
@@ -227,10 +235,10 @@ const Home = () => {
                 <img className="h-full" src={Support} alt="" />
               </div>
               <div>
-                <h3 className="text-xl font-bold text-base-content">
+                <h3 className="text-xl font-bold text-base-content dark:text-white/90">
                   24/7 Support
                 </h3>
-                <p className="text-base font-normal text-base-content-secondary">
+                <p className="text-base font-normal text-base-content-secondary dark:text-white/90">
                   Always Here for You
                 </p>
               </div>

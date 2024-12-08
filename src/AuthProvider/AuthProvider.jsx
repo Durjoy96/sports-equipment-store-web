@@ -17,6 +17,7 @@ const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [databaseUserInfo, setDatabaseUserInfo] = useState({});
   const [products, setProducts] = useState([]);
+  const [darkMode, setDarkMode] = useState(false);
 
   const createUserWithEmail = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
@@ -89,6 +90,8 @@ const AuthProvider = ({ children }) => {
     databaseUserInfo,
     products,
     setProducts,
+    setDarkMode,
+    darkMode
   };
 
   return (
