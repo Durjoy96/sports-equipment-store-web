@@ -16,6 +16,8 @@ import AllSportsEquipment from "./pages/AllSportsEquipment";
 import Details from "./pages/Details";
 import MyEquipments from "./pages/MyEquipments";
 import Edit from "./pages/Edit";
+import Home from "./pages/Home";
+import Products from "./components/Home/Products";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +25,16 @@ const router = createBrowserRouter([
     element: <Root></Root>,
     errorElement: <Error></Error>,
     children: [
+      {
+        path: "/",
+        element: <Home></Home>,
+        children: [
+          {
+            path: "/:category",
+            element: <Products></Products>,
+          },
+        ],
+      },
       {
         path: "/sign-up",
         element: <SignUp></SignUp>,

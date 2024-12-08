@@ -10,7 +10,6 @@ const AllSportsEquipment = () => {
   const sortBtnHandler = () => {
     const newEquipments = [...equipments];
     const DecEquipments = newEquipments.sort((a, b) => a.price - b.price);
-    console.log(DecEquipments);
     setEquipments(DecEquipments);
   };
 
