@@ -30,7 +30,7 @@ const Home = () => {
   const { setProducts, darkMode } = useContext(authContext);
   const [categories, setCategories] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/categories")
+    fetch("https://sports-equipment-store-server-sable.vercel.app/categories")
       .then((res) => res.json())
       .then((data) => setCategories(data));
   }, []);

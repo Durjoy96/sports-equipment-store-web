@@ -24,13 +24,13 @@ const SignIn = () => {
     const password = form.password.value;
     signInWithEmail(email, password)
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         toast.success("Sign in Successful!");
         form.email.value = "";
         form.password.value = "";
       })
       .catch((error) => {
-        console.log(error.message);
+        // console.log(error.message);
         if (error.message === "Firebase: Error (auth/invalid-credential).") {
           toast.error("Invalid email or password");
         }
@@ -40,7 +40,7 @@ const SignIn = () => {
   const signInWithGoogleHandler = () => {
     signInWithGoogle()
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         toast.success("Sign in Successful!");
         const user = {
           name: res?.user?.displayName,
@@ -50,7 +50,7 @@ const SignIn = () => {
         serverPostReqHandler(user);
       })
       .catch((error) => {
-        console.log(error.message);
+        // console.log(error.message);
       });
   };
 

@@ -24,7 +24,7 @@ const AddEquipment = () => {
     const equipment = {
       imageURL: imageUrl,
       itemName: itemName,
-      category: category,
+      category: category.toLowerCase(),
       description: description,
       price: Number(price),
       rating: Number(rating),
@@ -35,7 +35,7 @@ const AddEquipment = () => {
       userEmail: email,
     };
 
-    fetch("http://localhost:5000/equipments", {
+    fetch("https://sports-equipment-store-server-sable.vercel.app/equipments", {
       method: "POST",
       headers: {
         "content-type": "application/json",

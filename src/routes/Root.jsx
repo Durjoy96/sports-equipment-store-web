@@ -8,10 +8,10 @@ const Root = () => {
   const { darkMode } = useContext(authContext);
   return (
     <>
-      <header className="">
+      <header className="z-50">
         <Navbar></Navbar>
       </header>
-      <main className={`px-5 ${darkMode ? "dark" : ""}`}>
+      <main className={`z-10 px-5 ${darkMode ? "dark" : ""}`}>
         <Outlet></Outlet>
       </main>
       <Footer></Footer>

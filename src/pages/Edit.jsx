@@ -50,13 +50,16 @@ const Edit = () => {
       userEmail: email,
     };
 
-    fetch(`http://localhost:5000/equipment/${_id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(equipment),
-    })
+    fetch(
+      `https://sports-equipment-store-server-sable.vercel.app/equipment/${_id}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(equipment),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         form.reset();

@@ -17,12 +17,15 @@ const Card = ({ equipment, filteredDataHandler }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/equipment/${id}`, {
-          method: "DELETE",
-          headers: {
-            "content-type": "application/json",
-          },
-        })
+        fetch(
+          `https://sports-equipment-store-server-sable.vercel.app/equipment/${id}`,
+          {
+            method: "DELETE",
+            headers: {
+              "content-type": "application/json",
+            },
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             data.acknowledged && filteredDataHandler(id);
@@ -69,7 +72,7 @@ const Card = ({ equipment, filteredDataHandler }) => {
               className="flex-1 flex justify-center items-center gap-2 bg-primary px-4 py-2 rounded-lg text-primary-content hover:opacity-80"
             >
               <FaEdit></FaEdit>
-              Edit
+              Update
             </Link>
           </div>
         </div>

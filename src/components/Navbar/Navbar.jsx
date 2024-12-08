@@ -26,7 +26,7 @@ const Navbar = () => {
     document.querySelector("body").style.backgroundColor = "#f8f9fd";
   };
 
-  console.log(databaseUserInfo);
+  // console.log(databaseUserInfo);
   return (
     <>
       <div
@@ -57,7 +57,7 @@ const Navbar = () => {
               </div>
               <ul
                 tabIndex={0}
-                className="menu menu-sm dropdown-content bg-base-100 dark:bg-black rounded-box z-[1] mt-3 w-52 p-2 shadow gap-2"
+                className="menu menu-sm dropdown-content bg-base-100 dark:bg-black rounded-box z-[10] mt-3 w-52 p-2 shadow gap-2"
               >
                 {navbarPages.map((page, idx) => (
                   <NavPage key={idx} page={page}></NavPage>
@@ -86,7 +86,7 @@ const Navbar = () => {
                   </div>
                   <ul
                     tabIndex={0}
-                    className="dropdown-content menu bg-base-100 dark:bg-black rounded-box z-[1] w-32 p-2 shadow"
+                    className="dropdown-content menu bg-base-100 dark:bg-black rounded-box z-[10] w-32 p-2 shadow"
                   >
                     <li>
                       <p className="text-base-content font-semibold hover:bg-transparent active:">

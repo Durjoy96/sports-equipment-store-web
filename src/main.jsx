@@ -28,7 +28,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("http://localhost:5000/equipments"),
+        loader: () =>
+          fetch(
+            "https://sports-equipment-store-server-sable.vercel.app/equipments"
+          ),
         children: [
           {
             path: "/",
@@ -38,7 +41,9 @@ const router = createBrowserRouter([
             path: "/:category",
             element: <Products></Products>,
             loader: ({ params }) =>
-              fetch(`http://localhost:5000/equipments/${params.category}`),
+              fetch(
+                `https://sports-equipment-store-server-sable.vercel.app/equipments/${params.category}`
+              ),
           },
         ],
       },
@@ -61,7 +66,10 @@ const router = createBrowserRouter([
       {
         path: "/all-sports-equipment",
         element: <AllSportsEquipment></AllSportsEquipment>,
-        loader: () => fetch("http://localhost:5000/equipments"),
+        loader: () =>
+          fetch(
+            "https://sports-equipment-store-server-sable.vercel.app/equipments"
+          ),
       },
       {
         path: "details/:id",
@@ -71,7 +79,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/details/${params.id}`),
+          fetch(
+            `https://sports-equipment-store-server-sable.vercel.app/details/${params.id}`
+          ),
       },
       {
         path: "/user/equipments/:id",
@@ -89,7 +99,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/equipment/${params.id}`),
+          fetch(
+            `https://sports-equipment-store-server-sable.vercel.app/equipment/${params.id}`
+          ),
       },
     ],
   },

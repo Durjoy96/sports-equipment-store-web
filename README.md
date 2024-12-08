@@ -1,8 +1,9 @@
-# React + Vite
+# Project Name : Paraz
+# Live site Link : https://sports-equipment-store-a7db9.web.app/
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# 5 Features 
+- Users can register and log in to the website.
+- Equipment data can be saved to the database.
+- Data is displayed from the database.
+- Users can update and delete data from the database.
+- Dark mode and light mode options are available.

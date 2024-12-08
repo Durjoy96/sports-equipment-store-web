@@ -4,10 +4,12 @@ import { authContext } from "../AuthProvider/AuthProvider";
 
 const MyEquipments = () => {
   const { user, databaseUserInfo } = useContext(authContext);
-  console.log(databaseUserInfo._id);
+  // console.log(databaseUserInfo._id);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/equipments/user/${databaseUserInfo._id}`)
+    fetch(
+      `https://sports-equipment-store-server-sable.vercel.app/equipments/user/${databaseUserInfo._id}`
+    )
       .then((res) => res.json())
       .then((data) => setEquipmentData(data));
   }, [user]);

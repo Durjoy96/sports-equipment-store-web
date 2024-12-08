@@ -61,21 +61,26 @@ const AuthProvider = ({ children }) => {
   }, []);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/${user?.email}`)
+    fetch(
+      `https://sports-equipment-store-server-sable.vercel.app/${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => setDatabaseUserInfo(data));
   }, [user]);
 
   const serverPostReqHandler = async (user) => {
-    const response = await fetch("http://localhost:5000/users", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(user),
-    });
+    const response = await fetch(
+      "https://sports-equipment-store-server-sable.vercel.app/users",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(user),
+      }
+    );
     const result = await response.json();
-    console.log(result);
+    // console.log(result);
   };
 
   const authInfo = {
@@ -91,7 +96,7 @@ const AuthProvider = ({ children }) => {
     products,
     setProducts,
     setDarkMode,
-    darkMode
+    darkMode,
   };
 
   return (

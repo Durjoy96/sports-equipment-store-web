@@ -38,7 +38,7 @@ const SignUp = () => {
 
     createUserWithEmail(email, password)
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         updateUserProfile(name, photoUrl);
         const user = {
           name: name,
@@ -53,7 +53,7 @@ const SignUp = () => {
         form.password.value = "";
       })
       .catch((error) => {
-        console.log(error.message);
+        // console.log(error.message);
         if (error.message === "Firebase: Error (auth/email-already-in-use).") {
           toast.error("Email already in use");
         }
@@ -63,7 +63,7 @@ const SignUp = () => {
   const signInWithGoogleHandler = () => {
     signInWithGoogle()
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         toast.success("Sign in Successful!");
         const user = {
           name: res?.user?.displayName,
@@ -73,7 +73,7 @@ const SignUp = () => {
         serverPostReqHandler(user);
       })
       .catch((error) => {
-        console.log(error.message);
+        // console.log(error.message);
       });
   };
 
