@@ -1,7 +1,8 @@
-import { data, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import NavPage from "./NavPage";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { authContext } from "../../AuthProvider/AuthProvider";
+import { Tooltip } from "react-tooltip";
 
 const Navbar = () => {
   const { user, signOutUser, databaseUserInfo, setDarkMode, darkMode } =
@@ -124,6 +125,8 @@ const Navbar = () => {
 
               {/* sun icon */}
               <svg
+                data-tooltip-id="my-tooltip"
+                data-tooltip-content="Dark Mode"
                 onClick={darkThemeHandler}
                 className="swap-on h-8 w-8 fill-current"
                 xmlns="http://www.w3.org/2000/svg"
@@ -134,6 +137,8 @@ const Navbar = () => {
 
               {/* moon icon */}
               <svg
+                data-tooltip-id="my-tooltip"
+                data-tooltip-content="Light Mode"
                 onClick={LightThemeHandler}
                 className="swap-off h-8 w-8 fill-current"
                 xmlns="http://www.w3.org/2000/svg"
@@ -145,6 +150,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
+      <Tooltip id="my-tooltip" place="top" />
     </>
   );
 };

@@ -1,4 +1,3 @@
-import { useLoaderData } from "react-router-dom";
 import Card from "../components/MyEquipments/Card";
 import { useContext, useEffect, useState } from "react";
 import { authContext } from "../AuthProvider/AuthProvider";

@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { authContext } from "../../AuthProvider/AuthProvider";
 import ReactStars from "react-rating-stars-component";
 import { Link, useLoaderData } from "react-router-dom";
+import { Tooltip } from "react-tooltip";
 
 const Products = () => {
   const { products, setProducts } = useContext(authContext);
@@ -12,6 +13,7 @@ const Products = () => {
 
   return (
     <>
+      <Tooltip id="my-tooltip" place="top" />
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4 mt-12">
         {products.map((product) => (
           <>
@@ -52,6 +54,8 @@ const Products = () => {
                   {product.price}$
                 </p>
                 <Link
+                  data-tooltip-id="my-tooltip"
+                  data-tooltip-content="Product Details"
                   to={`/details/${product._id}`}
                   className="inline-block mt-3 text-base-content-secondary dark:text-white/90 hover:text-primary hover:underline"
                 >
