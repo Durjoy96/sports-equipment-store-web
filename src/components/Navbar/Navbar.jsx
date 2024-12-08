@@ -14,7 +14,7 @@ const Navbar = () => {
       name: "My Equipment List",
     },
   ];
-  console.log(databaseUserInfo._id);
+  console.log(databaseUserInfo);
   return (
     <>
       <div className="bg-base-100 py-2">

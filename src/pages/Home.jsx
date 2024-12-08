@@ -182,7 +182,7 @@ const Home = () => {
           <h2 className="text-xl font-bold text-base-content text-center md:text-2xl lg:text-3xl">
             Why Shop With Us?
           </h2>
-          <div className="py-12 px-8 bg-base-100 rounded-xl mt-8 flex gap-6 shadow-md">
+          <div className="py-12 px-8 bg-base-100 rounded-xl mt-8 flex gap-6 shadow-md flex-col md:flex-row">
             <div className="flex items-center gap-4">
               <div className="h-14">
                 <img className="h-full" src={DeliveryPng} alt="" />

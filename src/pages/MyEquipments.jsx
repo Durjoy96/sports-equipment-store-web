@@ -1,14 +1,24 @@
 import { useLoaderData } from "react-router-dom";
 import Card from "../components/MyEquipments/Card";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { authContext } from "../AuthProvider/AuthProvider";
 
 const MyEquipments = () => {
-  const data = useLoaderData();
-  console.log(data);
-  const [equipmentData, setEquipmentData] = useState(data);
+  const { user, databaseUserInfo } = useContext(authContext);
+  console.log(databaseUserInfo._id);
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/equipments/user/${databaseUserInfo._id}`)
+      .then((res) => res.json())
+      .then((data) => setEquipmentData(data));
+  }, [user]);
+
+  const [equipmentData, setEquipmentData] = useState([]);
 
   const filteredDataHandler = (id) => {
-    const remainingData = data.filter((equipment) => equipment._id !== id);
+    const remainingData = equipmentData.filter(
+      (equipment) => equipment._id !== id
+    );
     setEquipmentData(remainingData);
   };
 

@@ -80,8 +80,6 @@ const router = createBrowserRouter([
             <MyEquipments></MyEquipments>
           </PrivateRoute>
         ),
-        loader: ({ params }) =>
-          fetch(`http://localhost:5000/equipments/user/${params.id}`),
       },
       {
         path: "/user/equipment/:id/edit",
