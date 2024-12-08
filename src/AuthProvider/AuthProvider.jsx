@@ -4,7 +4,7 @@ import {
   createUserWithEmailAndPassword,
   GoogleAuthProvider,
   onAuthStateChanged,
-  signInWithEmailAndPassword, 
+  signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
   updateProfile,
@@ -16,6 +16,7 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [databaseUserInfo, setDatabaseUserInfo] = useState({});
+  const [products, setProducts] = useState([]);
 
   const createUserWithEmail = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
@@ -86,6 +87,8 @@ const AuthProvider = ({ children }) => {
     serverPostReqHandler,
     loading,
     databaseUserInfo,
+    products,
+    setProducts,
   };
 
   return (

@@ -28,10 +28,17 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+        loader: () => fetch("http://localhost:5000/equipments"),
         children: [
+          {
+            path: "/",
+            element: <Products></Products>,
+          },
           {
             path: "/:category",
             element: <Products></Products>,
+            loader: ({ params }) =>
+              fetch(`http://localhost:5000/equipments/${params.category}`),
           },
         ],
       },

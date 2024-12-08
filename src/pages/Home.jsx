@@ -17,16 +17,27 @@ import AsiaAsiaImg from "../assets/icons/asiaAsia.png";
 import runnerPng from "../assets/Icons/runner.png";
 import soccerPng from "../assets/Icons/soccer.png";
 import freakPng from "../assets/Icons/freak.png";
-import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { Link, NavLink, Outlet, useLoaderData } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import { authContext } from "../AuthProvider/AuthProvider";
+
+import DeliveryPng from "../assets/Icons/delivery.png";
+import SecurePayment from "../assets/Icons/secure-payments.png";
+import Moneyback from "../assets/Icons/money-back.png";
+import Support from "../assets/Icons/support.png";
 
 const Home = () => {
+  const { setProducts } = useContext(authContext);
   const [categories, setCategories] = useState([]);
   useEffect(() => {
     fetch("http://localhost:5000/categories")
       .then((res) => res.json())
       .then((data) => setCategories(data));
   }, []);
+
+  const equipments = useLoaderData();
+  setProducts(equipments);
+
   return (
     <>
       <div className="max-w-screen-xl mx-auto px-0 mt-12 md:mt-16 lg:px-5">
@@ -155,8 +166,77 @@ const Home = () => {
             </div>
           </Marquee>
         </div>
-        {/* categories */}
-        
+        <div className="flex gap-6 justify-center flex-col mt-12 md:mt-20 md:flex-row md:flex-wrap lg:mt-32">
+          <NavLink className="btn" to="/">
+            ALL
+          </NavLink>
+          {categories.map((category, idx) => (
+            <NavLink className="btn" key={idx} to={`/${category}`}>
+              {category.toUpperCase()}
+            </NavLink>
+          ))}
+        </div>
+        <Outlet></Outlet>
+        {/* Why Shop With Us? */}
+        <div className="mt-12 md:mt-20 lg:mt-32">
+          <h2 className="text-xl font-bold text-base-content text-center md:text-2xl lg:text-3xl">
+            Why Shop With Us?
+          </h2>
+          <div className="py-12 px-8 bg-base-100 rounded-xl mt-8 flex gap-6 shadow-md">
+            <div className="flex items-center gap-4">
+              <div className="h-14">
+                <img className="h-full" src={DeliveryPng} alt="" />
+              </div>
+              <div>
+                <h3 className="text-xl font-bold text-base-content">
+                  Fast Delivery
+                </h3>
+                <p className="text-base font-normal text-base-content-secondary">
+                  Experience Lightning-Fast Delivery
+                </p>
+              </div>
+            </div>
+            <div className="flex items-center gap-4">
+              <div className="h-14">
+                <img className="h-full" src={SecurePayment} alt="" />
+              </div>
+              <div>
+                <h3 className="text-xl font-bold text-base-content">
+                  Secured Payment
+                </h3>
+                <p className="text-base font-normal text-base-content-secondary">
+                  Shop with Confidence
+                </p>
+              </div>
+            </div>
+            <div className="flex items-center gap-4">
+              <div className="h-14">
+                <img className="h-full" src={Moneyback} alt="" />
+              </div>
+              <div>
+                <h3 className="text-xl font-bold text-base-content">
+                  Money Back
+                </h3>
+                <p className="text-base font-normal text-base-content-secondary">
+                  100% Money-Back Guarantee
+                </p>
+              </div>
+            </div>
+            <div className="flex items-center gap-4">
+              <div className="h-14">
+                <img className="h-full" src={Support} alt="" />
+              </div>
+              <div>
+                <h3 className="text-xl font-bold text-base-content">
+                  24/7 Support
+                </h3>
+                <p className="text-base font-normal text-base-content-secondary">
+                  Always Here for You
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );
