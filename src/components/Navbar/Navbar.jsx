@@ -30,7 +30,7 @@ const Navbar = () => {
   return (
     <>
       <div
-        className={`${darkMode ? "dark" : ""}bg-base-100 dark:bg-black py-2`}
+        className={`bg-base-100 dark:bg-black py-2`}
       >
         <div className="navbar max-w-screen-xl mx-auto">
           <div className="navbar-start">
